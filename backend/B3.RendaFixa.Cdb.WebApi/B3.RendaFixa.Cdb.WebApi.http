@@ -1,0 +1,6 @@
+@B3.RendaFixa.Cdb.WebApi_HostAddress = http://localhost:5207
+
+GET {{B3.RendaFixa.Cdb.WebApi_HostAddress}}/Cdb/
+Accept: application/json
+
+###
