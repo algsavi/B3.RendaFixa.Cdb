@@ -1,4 +1,5 @@
 using B3.RendaFixa.Cdb.Dominio.Entidades;
+using B3.RendaFixa.Cdb.Dominio.Excessoes;
 using B3.RendaFixa.Cdb.Dominio.ValueObjects;
 
 namespace B3.RendaFixa.Cdb.Testes
@@ -29,6 +30,17 @@ namespace B3.RendaFixa.Cdb.Testes
             var taxaNormalizada = Math.Round(taxaAplicada, 3);
 
             Assert.Equal(taxaEsperada, taxaNormalizada);
+        }
+
+        [Theory]
+        [InlineData(1)]
+        [InlineData(0)]
+        [InlineData(-1)]
+        public void Deve_lancar_excecao_quando_prazo_for_menor_ou_igual_a_1(int prazo)
+        {
+            Assert.Throws<DominioException>(() =>
+                new CdbInvestmento(new Dinheiro(1000m), prazo)
+            );
         }
     }
 }

@@ -1,0 +1,39 @@
+<div style="max-width:560px;margin:40px auto;font-family:Arial;display:grid;gap:12px;">
+    <h2>Cálculo de CDB</h2>
+
+    <form [formGroup]="form" (ngSubmit)="calcular()" style="display:grid;gap:12px;">
+        <div>
+            <label>Valor inicial (R$)</label><br />
+            <input type="text" formControlName="valorInicial" mask="separator.2" thousandSeparator="." decimalMarker=","
+                prefix="R$ " style="width:100%; padding:10px;" />
+            @if (form.get('valorInicial')?.touched && form.get('valorInicial')?.invalid) {
+            <small>
+                Informe um valor monetário positivo.
+            </small>
+            }
+        </div>
+
+        <div>
+            <label>Prazo (meses)</label><br />
+            <input type="number" min="2" formControlName="prazoEmMeses" style="width:100%;padding:10px;" />
+            @if (form.get('prazoEmMeses')?.touched && form.get('prazoEmMeses')?.invalid) {
+            <small>
+                O prazo deve ser maior que 1 mês.
+            </small>
+            }
+        </div>
+
+        <button type="submit" [disabled]="loading">
+            {{ loading ? 'Calculando...' : 'Calcular' }}
+        </button>
+    </form>
+
+    @if(erro) {
+    <p style="color:#b00020;">{{ erro }}</p>
+    }
+
+    @if (resultado) {
+    <p><b>Bruto:</b> {{ brl(resultado.valorBruto) }}</p>
+    <p><b>Líquido:</b> {{ brl(resultado.valorLiquido) }}</p>
+    }
+</div>
