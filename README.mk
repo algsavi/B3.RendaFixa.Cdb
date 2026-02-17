@@ -88,6 +88,7 @@ http://localhost:5207
 Swagger (se habilitado):
 https://localhost:7167/swagger
 
+Para a API funcionar no Swagger, precisa inserir a API Key no "Authorize": 232499cf-1eaf-4f7f-88ad-91623064a6f6
 
 ========================
 EXECUTAR FRONTEND
