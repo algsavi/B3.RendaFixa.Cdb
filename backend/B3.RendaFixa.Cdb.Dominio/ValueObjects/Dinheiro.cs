@@ -4,27 +4,27 @@ namespace B3.RendaFixa.Cdb.Dominio.ValueObjects;
 
 public sealed class Dinheiro
 {
-    public decimal Value { get; }
+    public decimal Valor { get; }
 
-    public Dinheiro(decimal value)
+    public Dinheiro(decimal valor)
     {
-        if (value < 0)
+        if (valor < 0)
             throw new DominioException("Valor monetário não pode ser negativo.");
 
-        Value = Math.Round(value, 2, MidpointRounding.AwayFromZero);
+        Valor = Math.Round(valor, 2, MidpointRounding.AwayFromZero);
     }
 
-    public Dinheiro Adicionar(Dinheiro other) => new Dinheiro(Value + other.Value);
+    public Dinheiro Adicionar(Dinheiro valor) => new Dinheiro(Valor + valor.Valor);
 
-    public Dinheiro Multiplicar(decimal factor)
+    public Dinheiro Multiplicar(decimal fator)
     {
-        if (factor < 0)
+        if (fator < 0)
             throw new DominioException("Fator não pode ser negativo.");
 
-        return new Dinheiro(Value * factor);
+        return new Dinheiro(Valor * fator);
     }
 
-    public Dinheiro Subtrair(Dinheiro other) => new Dinheiro(Value - other.Value);
+    public Dinheiro Subtrair(Dinheiro other) => new Dinheiro(Valor - other.Valor);
 
-    public override string ToString() => Value.ToString("F2");
+    public override string ToString() => Valor.ToString("F2");
 }
