@@ -26,7 +26,7 @@ namespace B3.RendaFixa.Cdb.Testes
             var valor1 = new Dinheiro(100m);
             var valor2 = new Dinheiro(50m);
 
-            var resultado = valor1.Add(valor2);
+            var resultado = valor1.Adicionar(valor2);
 
             Assert.Equal(150m, resultado.Value);
         }
@@ -37,7 +37,7 @@ namespace B3.RendaFixa.Cdb.Testes
             var valor1 = new Dinheiro(200m);
             var valor2 = new Dinheiro(50m);
 
-            var resultado = valor1.Subtract(valor2);
+            var resultado = valor1.Subtrair(valor2);
 
             Assert.Equal(150m, resultado.Value);
         }
@@ -47,7 +47,7 @@ namespace B3.RendaFixa.Cdb.Testes
         {
             var valor = new Dinheiro(100m);
 
-            var resultado = valor.Multiply(2m);
+            var resultado = valor.Multiplicar(2m);
 
             Assert.Equal(200m, resultado.Value);
         }
@@ -58,7 +58,7 @@ namespace B3.RendaFixa.Cdb.Testes
             var valor = new Dinheiro(100m);
 
             Assert.Throws<DominioException>(() =>
-                valor.Multiply(-2m));
+                valor.Multiplicar(-2m));
         }
 
         [Fact]

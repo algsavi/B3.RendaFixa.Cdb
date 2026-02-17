@@ -24,7 +24,7 @@ namespace B3.RendaFixa.Cdb.Testes
         {
             var investimento = new CdbInvestmento(new Dinheiro(1000m), meses);
 
-            var lucro = investimento.ValorBruto.Subtract(investimento.ValorInicial);
+            var lucro = investimento.ValorBruto.Subtrair(investimento.ValorInicial);
             var taxaAplicada = investimento.ValorImposto.Value / lucro.Value;
 
             var taxaNormalizada = Math.Round(taxaAplicada, 3);

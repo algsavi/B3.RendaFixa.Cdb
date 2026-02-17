@@ -14,9 +14,9 @@ public sealed class Dinheiro
         Value = Math.Round(value, 2, MidpointRounding.AwayFromZero);
     }
 
-    public Dinheiro Add(Dinheiro other) => new Dinheiro(Value + other.Value);
+    public Dinheiro Adicionar(Dinheiro other) => new Dinheiro(Value + other.Value);
 
-    public Dinheiro Multiply(decimal factor)
+    public Dinheiro Multiplicar(decimal factor)
     {
         if (factor < 0)
             throw new DominioException("Fator não pode ser negativo.");
@@ -24,7 +24,7 @@ public sealed class Dinheiro
         return new Dinheiro(Value * factor);
     }
 
-    public Dinheiro Subtract(Dinheiro other) => new Dinheiro(Value - other.Value);
+    public Dinheiro Subtrair(Dinheiro other) => new Dinheiro(Value - other.Value);
 
     public override string ToString() => Value.ToString("F2");
 }

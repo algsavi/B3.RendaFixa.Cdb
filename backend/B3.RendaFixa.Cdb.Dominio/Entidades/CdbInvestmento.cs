@@ -38,15 +38,15 @@ namespace B3.RendaFixa.Cdb.Dominio.Entidades
 
             for (int i = 0; i < PrazoEmMeses; i++)
             {
-                valorAtual = valorAtual.Multiply(taxaMensal);
+                valorAtual = valorAtual.Multiplicar(taxaMensal);
             }
 
             ValorBruto = valorAtual;
 
-            var lucro = ValorBruto.Subtract(ValorInicial);
+            var lucro = ValorBruto.Subtrair(ValorInicial);
             var valorImposto = RetornarImposto();
 
-            ValorImposto = lucro.Multiply(valorImposto);
+            ValorImposto = lucro.Multiplicar(valorImposto);
             ValorLiquido = new Dinheiro(ValorBruto.Value - ValorImposto.Value);
         }
 
