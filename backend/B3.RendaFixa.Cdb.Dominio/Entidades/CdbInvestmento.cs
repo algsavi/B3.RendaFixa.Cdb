@@ -47,7 +47,7 @@ namespace B3.RendaFixa.Cdb.Dominio.Entidades
             var valorImposto = RetornarImposto();
 
             ValorImposto = lucro.Multiplicar(valorImposto);
-            ValorLiquido = new Dinheiro(ValorBruto.Value - ValorImposto.Value);
+            ValorLiquido = new Dinheiro(ValorBruto.Valor - ValorImposto.Valor);
         }
 
         private decimal RetornarImposto()

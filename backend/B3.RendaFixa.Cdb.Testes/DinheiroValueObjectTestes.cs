@@ -10,7 +10,7 @@ namespace B3.RendaFixa.Cdb.Testes
         {
             var dinheiro = new Dinheiro(10.555m);
 
-            Assert.Equal(10.56m, dinheiro.Value);
+            Assert.Equal(10.56m, dinheiro.Valor);
         }
 
         [Fact]
@@ -28,7 +28,7 @@ namespace B3.RendaFixa.Cdb.Testes
 
             var resultado = valor1.Adicionar(valor2);
 
-            Assert.Equal(150m, resultado.Value);
+            Assert.Equal(150m, resultado.Valor);
         }
 
         [Fact]
@@ -39,7 +39,7 @@ namespace B3.RendaFixa.Cdb.Testes
 
             var resultado = valor1.Subtrair(valor2);
 
-            Assert.Equal(150m, resultado.Value);
+            Assert.Equal(150m, resultado.Valor);
         }
 
         [Fact]
@@ -49,7 +49,7 @@ namespace B3.RendaFixa.Cdb.Testes
 
             var resultado = valor.Multiplicar(2m);
 
-            Assert.Equal(200m, resultado.Value);
+            Assert.Equal(200m, resultado.Valor);
         }
 
         [Fact]

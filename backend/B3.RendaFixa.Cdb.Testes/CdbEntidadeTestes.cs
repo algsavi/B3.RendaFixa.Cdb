@@ -11,8 +11,8 @@ namespace B3.RendaFixa.Cdb.Testes
         {
             var investimento = new CdbInvestmento(new Dinheiro(1000m), 12);
 
-            Assert.True(investimento.ValorBruto?.Value > 1000m);
-            Assert.True(investimento.ValorLiquido?.Value < investimento.ValorBruto.Value);
+            Assert.True(investimento.ValorBruto?.Valor > 1000m);
+            Assert.True(investimento.ValorLiquido?.Valor < investimento.ValorBruto.Valor);
         }
 
         [Theory]
@@ -25,7 +25,7 @@ namespace B3.RendaFixa.Cdb.Testes
             var investimento = new CdbInvestmento(new Dinheiro(1000m), meses);
 
             var lucro = investimento.ValorBruto.Subtrair(investimento.ValorInicial);
-            var taxaAplicada = investimento.ValorImposto.Value / lucro.Value;
+            var taxaAplicada = investimento.ValorImposto.Valor / lucro.Valor;
 
             var taxaNormalizada = Math.Round(taxaAplicada, 3);
 

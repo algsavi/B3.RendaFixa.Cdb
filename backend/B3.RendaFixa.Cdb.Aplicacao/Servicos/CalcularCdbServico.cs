@@ -30,8 +30,8 @@ namespace B3.RendaFixa.Cdb.Aplicacao.Servicos
 
                 var response = new CdbResposta
                 {
-                    ValorBruto = investimento.ValorBruto.Value,
-                    ValorLiquido = investimento.ValorLiquido.Value
+                    ValorBruto = investimento.ValorBruto.Valor,
+                    ValorLiquido = investimento.ValorLiquido.Valor
                 };
 
                 return Task.FromResult(Resultado<CdbResposta>.Sucesso(response));
