@@ -24,7 +24,7 @@ public sealed class Dinheiro
         return new Dinheiro(Valor * fator);
     }
 
-    public Dinheiro Subtrair(Dinheiro other) => new Dinheiro(Valor - other.Valor);
+    public Dinheiro Subtrair(Dinheiro valor) => new Dinheiro(Valor - valor.Valor);
 
     public override string ToString() => Valor.ToString("F2");
 }
