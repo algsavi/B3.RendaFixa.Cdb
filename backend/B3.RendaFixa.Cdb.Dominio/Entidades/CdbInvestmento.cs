@@ -32,22 +32,22 @@ namespace B3.RendaFixa.Cdb.Dominio.Entidades
 
         private void Calcular()
         {
-            var valorAtual = ValorInicial;
-
-            var taxaMensal = 1 + (CDI * TB);
+            decimal brutoCru = ValorInicial.Valor;
+            decimal taxaEfetivaMensal = 1 + (CDI * TB);
 
             for (int i = 0; i < PrazoEmMeses; i++)
-            {
-                valorAtual = valorAtual.Multiplicar(taxaMensal);
-            }
+                brutoCru *= taxaEfetivaMensal;
 
-            ValorBruto = valorAtual;
+            decimal lucroCru = brutoCru - ValorInicial.Valor;
+            decimal aliquota = RetornarImposto();
 
-            var lucro = ValorBruto.Subtrair(ValorInicial);
-            var valorImposto = RetornarImposto();
+            decimal impostoFinal = Math.Round(lucroCru * aliquota, 2, MidpointRounding.AwayFromZero);
+            decimal brutoFinal = Math.Round(brutoCru, 2, MidpointRounding.AwayFromZero);
+            decimal liquidoFinal = Math.Round(brutoCru - (lucroCru * aliquota), 2, MidpointRounding.AwayFromZero);
 
-            ValorImposto = lucro.Multiplicar(valorImposto);
-            ValorLiquido = new Dinheiro(ValorBruto.Valor - ValorImposto.Valor);
+            ValorBruto = new Dinheiro(brutoFinal);
+            ValorImposto = new Dinheiro(impostoFinal);
+            ValorLiquido = new Dinheiro(liquidoFinal);
         }
 
         private decimal RetornarImposto()
